@@ -360,7 +360,7 @@ def populate_battles(s_flag, t_flag, r_flag, debug):
 	if r_flag:
 		print("Checking if there are previously-unuploaded battles...")
 		printed = False
-		url  = 'https://stat.ink/api/v2/user-battle?only=splatnet_number&count=100'
+		url  = 'https://ink.ippix86.com/api/v2/user-battle?only=splatnet_number&count=100'
 		auth = {'Authorization': 'Bearer {}'.format(API_KEY)}
 		resp = requests.get(url, headers=auth)
 		try:
@@ -1218,7 +1218,7 @@ def post_battle(i, results, s_flag, t_flag, m_flag, sendgears, debug, ismonitor=
 	else:
 		# POST to stat.ink
 		# https://github.com/fetus-hina/stat.ink/blob/master/doc/api-2/request-body.md
-		url  = 'https://stat.ink/api/v2/battle'
+		url  = 'https://ink.ippix86.com/api/v2/battle'
 		auth = {'Authorization': 'Bearer {}'.format(API_KEY), 'Content-Type': 'application/x-msgpack'}
 
 		if payload["agent"] != os.path.basename(__file__)[:-3]:

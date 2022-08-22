@@ -28,7 +28,7 @@ def salmon_post_profile(profile):
 		"total_point":       profile["card"]["kuma_point_total"]
 	}
 
-	url  = 'https://stat.ink/api/v2/salmon-stats'
+	url  = 'https://ink.ippix86.com/api/v2/salmon-stats'
 	auth = {'Authorization': 'Bearer {}'.format(api_key)}
 	updateprofile = requests.post(url, headers=auth, data=payload)
 
@@ -237,7 +237,7 @@ def salmon_post_shift(i, results):
 	#************
 	#*** POST ***
 	#************
-	url  = 'https://stat.ink/api/v2/salmon'
+	url  = 'https://ink.ippix86.com/api/v2/salmon'
 	auth = {'Authorization': 'Bearer {}'.format(api_key), 'Content-Type': 'application/json'}
 	postshift = requests.post(url, headers=auth, data=json.dumps(payload), allow_redirects=False)
 
@@ -303,7 +303,7 @@ def get_statink_shifts(api_key):
 	'''Returns the 100 most recently-uploaded Salmon Run shifts from stat.ink.'''
 
 	print("Checking if there are previously-unuploaded shifts...")
-	url  = 'https://stat.ink/api/v2/user-salmon?only=splatnet_number&count=100'
+	url  = 'https://ink.ippix86.com/api/v2/user-salmon?only=splatnet_number&count=100'
 	auth = {'Authorization': 'Bearer {}'.format(api_key)}
 	resp = requests.get(url, headers=auth)
 	statink_shifts = json.loads(resp.text)
